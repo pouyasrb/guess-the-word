@@ -4,39 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>guess the word</title>
+    <style>
+      .centeckr-blo {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50px;
+  height: 50px;
+  width: 300px;
+
+}
+.bt1{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 4px;
+
+}
+    </style>
 </head>
-<body dir="rtl">
-    <h1 style="text-align: center;font-size: 50px;">guess the word</h1>
-    <hr>
-   <button id="bt1">حدس بزن</button>:<input type="box" id="in1">
-   <h2 id="h2"></h2>
-   <h3 id="h3"></h2>
-<script>
+<body style="background-image: url('img.jpg');">
+    <h1 style="font-size: 70px;text-align: center;"> guess the word</h1>
+    
+   
+  
+
+   <input type="text" id="in1" class="centeckr-blo" >
+   
+   <button id="bt1" class="bt1" >guess</button>
+   <p id="p1" style="text-align: center;font-size: 40px;"></p>
+   <p style="color: rgb(0, 242, 255);text-align: center;font-size: 40px;" id="p2" ></p>
+   <button id="bt2" style="display: none;"class="bt1">مجدد</button>
+
+   <script>
+
+     let p=Math.random()*(100-10)+10;
+       let t=Math.floor(p);
+       console.log(t);
 
     let bt1 =document.getElementById("bt1");
-    let in1=document.getElementById("in1");
-    let h2=document.getElementById("h2");
-    let r=Math.random()*(100-10)+10;
-    let t=Math.floor(r);
-   
+    let bt2 =document.getElementById("bt2");
+        let in1=document.getElementById("in1");
+       let p1=document.getElementById("p1"); 
+       let i=0;
+      
+     
+
+      
+       bt1.addEventListener("click",function(){
+     
+        if(t==in1.value){
+           p1.innerHTML="حدس درسته"
+           p1.style.color="green"
+           
+       }
+       else{
+        p1.innerHTML="حدس غلطه"
+    p1.style.color="purple"
+     
+     if(i<4){
+
+        console .log(i++);
+        p2.innerHTML=i;
+
+     }
+      else if(i=5){
+      bt1.disabled="none"
+      p2.innerHTML=""
+      p1.innerHTML="شما سوختید"
+      bt2.style.display="block"
+
+        
+      } 
     
-    console.log(t);
 
-    bt1.addEventListener("click",function(){
+       
+       }
 
-
-if(t==in1.value){
-h2.innerHTML="حدس شما درست بود"
-h2.style.color="green"
-}
-else{
-    h2.innerHTML="حدس شما اشتباه بود"
-    h2.style.color="red"
-}
-
-    })
-
-</script>
     
+    
+ 
+
+       })
+       bt2.addEventListener("click",function(){
+         location.reload();
+       })
+       
+     
+
+   </script>
 </body>
 </html>
