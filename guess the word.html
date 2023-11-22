@@ -23,7 +23,7 @@
 }
     </style>
 </head>
-<body style="background-image: url('img.jpg');">
+<body">
     <h1 style="font-size: 70px;text-align: center;"> guess the word</h1>
     
    
@@ -34,6 +34,7 @@
    <button id="bt1" class="bt1" >guess</button>
    <p id="p1" style="text-align: center;font-size: 40px;"></p>
    <p style="color: rgb(0, 242, 255);text-align: center;font-size: 40px;" id="p2" ></p>
+   <p style="color: rgb(234, 0, 255);text-align: center;font-size: 40px;" id="p3" ></p>
    <button id="bt2" style="display: none;"class="bt1">مجدد</button>
 
    <script>
@@ -46,16 +47,31 @@
     let bt2 =document.getElementById("bt2");
         let in1=document.getElementById("in1");
        let p1=document.getElementById("p1"); 
+       let p2=document.getElementById("p2"); 
+       let p3=document.getElementById("p3"); 
+
        let i=0;
       
      
 
       
        bt1.addEventListener("click",function(){
+        if(t<50){
+          p3.innerHTML="عدد کوچکتر از 50";
+          }
+          else{
+            p3.innerHTML="50عدد بزرگتر از "
+          
+        
+      }
      
         if(t==in1.value){
            p1.innerHTML="حدس درسته"
            p1.style.color="green"
+           bt2.style.display="block"
+           p3.innerHTML="";
+           p2.innerHTML="";
+           bt1.disabled="none";
            
        }
        else{
@@ -76,7 +92,14 @@
 
         
       } 
-    
+      if(t<50){
+          p3.innerHTML="عدد کوچکتر از 50";
+          }
+          else{
+            p3.innerHTML="50عدد بزرگتر از ";
+          
+        
+      }
 
        
        }
@@ -88,7 +111,10 @@
        })
        bt2.addEventListener("click",function(){
          location.reload();
+
        })
+       
+   
        
      
 
